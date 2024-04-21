@@ -1,0 +1,53 @@
+.payment-page-container {
+    width: 100%;
+    max-width: 600px; /* Increased width */
+    min-height: 500px; /* Added minimum height */
+    margin: 0 auto;
+    padding: 40px; /* Increased padding */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-top: 5%;
+}
+
+.payment-page-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.payment-page-container input[type="radio"] {
+    margin-right: 10px;
+    margin-bottom: 15px; /* Increased spacing between radio buttons */
+}
+
+.payment-page-container label {
+    margin-bottom: 10px; /* Increased spacing under labels */
+}
+
+.payment-page-container input[type="text"] {
+    margin-bottom: 20px; /* Increased margin bottom */
+    height: 40px; /* Increased height */
+    padding: 8px; /* Increased padding */
+}
+
+.payment-page-container button {
+    padding: 15px; /* Increased padding */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; /* Added space above the button */
+}
+
+.form-group {
+    margin-bottom: 20px;  /* Ensures spacing between groups */
+}
+
+.form-group input,
+.form-group label {
+    display: block;  /* Ensures that label and input are on separate lines */
+    width: 100%;  /* Ensures inputs take full width of their container */
+}
+
+
+.form-group input:focus {
+    outline: none;  /* Removes the default focus outline */
+    border: none;  /* Adds a blue border instead */
+}
