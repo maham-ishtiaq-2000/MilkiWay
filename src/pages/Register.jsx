@@ -33,10 +33,10 @@ const Register = () => {
         username: inputs.username,
         role: inputs.role
       });
-      toast.success("You are registered Successfully!")
+      alert("You are registered Successfully!")
       navigate("/");
     } catch (error) {
-      toast.error("Invalid Email or Password!");
+      alert("Invalid Email or Password!");
     }
   };
 

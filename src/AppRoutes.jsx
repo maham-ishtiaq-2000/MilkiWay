@@ -6,6 +6,8 @@ import HomePage from "./pages/HomePage";
 import Products from './pages/Products';
 import ProductCartPage from "./pages/productCartPage";
 import PaymentPage from "./pages/PaymentPage";
+import OrderHistory from "./pages/OrderHistory";
+import SettingsPage from "./pages/SettingsPage";
 
 const AppRoutes = () => {
     
@@ -17,6 +19,8 @@ const AppRoutes = () => {
             <Route path="/products" element={<Products />}></Route>
             <Route path="/productCartPage" element={<ProductCartPage />}></Route>
             <Route path="/paymentPage" element={<PaymentPage />}></Route>
+            <Route path="/orderHistory" element={<OrderHistory />}></Route>
+            <Route path="/settingsPage" element={<SettingsPage />}></Route>
         </Routes>
     );
 };

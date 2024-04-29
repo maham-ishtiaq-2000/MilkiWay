@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext,useEffect } from 'react';
+import axios from 'axios';
 import SideBar from '../Layouts/SideBar';
 import { useNavigate } from 'react-router-dom';
 import EggsImage from '../assets/Egg.png';
@@ -13,16 +14,43 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const ProductCartPage = () => {
     const { cartItems, increaseQuantity, decreaseQuantity, removeFromCart, totalAmount } = useContext(CartContext);
+    console.log(cartItems)
+    
     const navigate = useNavigate();
 
-    const navigateToPayment = () => {
-        if (cartItems.length > 0) {
-            navigate("/paymentPage");
-        } else {
+    const navigateToPayment = async () => {
+        if (cartItems.length === 0) {
             toast.error("Your cart is empty. Add items before checking out.");
+            return;
+        }
+    
+        // Retrieve customer ID from local storage
+        const customerId = localStorage.getItem('userId');
+        if (!customerId) {
+            toast.error("Customer ID is missing. Please log in again.");
+            return;
+        }
+    
+        const orderData = {
+            customer: customerId, // Use the retrieved customer ID
+            products: cartItems.map(item => ({
+                product: item._id,
+                quantity: item.quantity
+            })),
+            status: "pending"
+        };
+    
+        try {
+            const response = await axios.post('http://localhost:3000/orders/', orderData);
+            console.log('Order response:', response.data); // Log or handle response data as needed
+            alert("Order successfully created!");
+            navigate("/paymentPage");
+        } catch (error) {
+            console.error('Error creating order:', error);
+            toast.error("Failed to create order. Please try again.");
         }
     };
-
+    
 
     const getImageSrc = (description) => {
         const desc = description.toLowerCase();

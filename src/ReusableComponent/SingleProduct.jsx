@@ -6,6 +6,8 @@ import AllProductsImage from '../assets/allProducts.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons'; // Make sure to import the cart-plus icon
 import { CartContext } from '../context/cartContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SingleProduct = ({ product }) => {
     const { addToCart} = useContext(CartContext);
@@ -28,6 +30,7 @@ const SingleProduct = ({ product }) => {
 
     const addToCartItems = () => {
         addToCart(product)
+        alert("Added To Cart Successfully!")
     }
 
     return (

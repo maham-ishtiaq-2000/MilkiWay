@@ -17,8 +17,8 @@ const Sidebar = () => {
   const icons = [
     { to: "/homePage", icon: faHome },
     { to: "/productCartPage", icon: faCartShopping },
-    { to: "/", icon: faPieChart },
-    { to: "/", icon: faGear },
+    { to: "/orderHistory", icon: faPieChart },
+    { to: "/settingsPage", icon: faGear },
   ];
 
   const handleLogout = () => {
