@@ -33,7 +33,7 @@ const SettingsPage = () => {
         setLoading(true);
     
         try {
-            const response = await axios.patch(`http://localhost:3000/users/update/${userId}`, {
+            const response = await axios.put(`http://localhost:3000/users/update/${userId}`, {
                 username,
                 email,
                 password

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import './Login.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import MilkiWay from '/AppLogo.png';
 import axios from 'axios';
 
 const Login = () => {
@@ -40,13 +42,11 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-offWhite">
-      <div className="max-w-md w-full space-y-8 p-10 bg-white rounded-lg shadow-lg ">
-        <div>
-          <h2 className="text-center text-2xl font-semibold text-gray">
+      <div className="max-w-md w-full space-y-8 p-3 bg-white rounded-lg shadow-lg ">
+       <div className="text-center">
+          <img src={MilkiWay} alt="Milkyway Logo" className="mx-auto w-50" style={{"height" : "200px"}}/> {/* Adjust width and height as needed */}
+          <h2 className="text-3xl font-bold text-pink headings">
             MilkiWay
-          </h2>
-          <h2 className="mt-2 text-center text-3xl font-bold text-gray">
-            Log In to your account
           </h2>
         </div>
 
@@ -82,7 +82,7 @@ const Login = () => {
             </button>
           </div>
         </form>
-        <div className="text-center">
+        <div className="text-center mb-10">
             <Link to="/register" className="text-pink cursor-pointer hover:underline">
                 Dont have an account? Register
             </Link>

@@ -4,11 +4,12 @@ import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import Slider1 from '../assets/HomePagePic.png'; 
-import Slider2 from '../assets/HomePagePic2.png'; 
-import Slider3 from '../assets/HomePagePic3.png';
+import HomePageImage from '../assets/HomePagePic.png';
+import Slider1 from '../assets/AppLogo.png'; // Replace with actual image paths
+import Slider2 from '../assets/AppLogo.png'; // Replace with actual image paths
+import Slider3 from '../assets/AppLogo.png'; // Replace with actual image paths
 
-const HomePage = () => {
+const Slider = () => {
     const navigate = useNavigate();
     const navigateToProducts = () => {
         navigate("/products");
@@ -17,11 +18,11 @@ const HomePage = () => {
     const sliderSettings = {
         dots: true,
         infinite: true,
-        speed: 300, // Faster transition speed
+        speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 1500, // Reduced to 1000ms for quicker image change
+        autoplaySpeed: 3000,
     };
 
     const images = [
@@ -42,7 +43,7 @@ const HomePage = () => {
                                 <img
                                     src={image.src}
                                     alt={image.alt}
-                                    className="w-full h-[50rem] object-cover" // Further increased height
+                                    className="w-full h-64 object-cover"
                                 />
                             </div>
                         ))}
@@ -60,4 +61,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default Slider;
