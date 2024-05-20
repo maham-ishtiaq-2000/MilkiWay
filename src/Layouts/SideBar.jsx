@@ -1,37 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import logo from "../assets/logo.png";
 import {
   faHome,
-  faBan,
   faPieChart,
   faGear,
   faSignOutAlt,
   faCartShopping,
+  faAdd,
+  faClipboardList
 } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router-dom/dist";
 
 const Sidebar = () => {
   const route = useLocation();
+  const [role, setRole] = useState("");
+
+  useEffect(() => {
+    const userRole = localStorage.getItem('role');
+    setRole(userRole);
+  }, []);
+
+  
   const icons = [
-    { to: "/homePage", icon: faHome },
-    { to: "/productCartPage", icon: faCartShopping },
-    { to: "/orderHistory", icon: faPieChart },
-    { to: "/settingsPage", icon: faGear },
+    { to: "/homePage", icon: faHome, roles: ["dairyFarmOwner", "customer"] },
+    { to: "/productCartPage", icon: faCartShopping, roles: ["customer"] },
+    { to: "/addProduct", icon: faAdd , roles : ["dairyFarmOwner"]},
+    { to : "/allFarmerProduct" , icon : faClipboardList , roles : ["dairyFarmOwner"]},
+    { to: "/orderHistory", icon: faPieChart, roles: ["customer"] },
+    { to: "/settingsPage", icon: faGear, roles: ["dairyFarmOwner", "customer"] },
   ];
 
   const handleLogout = () => {
     localStorage.clear();
   };
-  
 
   return (
     <div className="fixed top-0 left-0 flex flex-col h-full bg-offWhite text-pink items-end py-4 pl-4 z-50">
-      <NavLink to="/Home" className="w-20 h-20 mb-5 mr-2">
+      <NavLink to="/homePage" className="w-20 h-20 mb-5 mr-2">
         <img src={logo} alt="Logo" />
       </NavLink>
-      {icons.map((item, index) => (
+      {icons.filter(item => item.roles.includes(role)).map((item, index) => (
         <div className={`p-4 ${route.pathname === item.to ? "bg-offWhite" : ""}`} key={index}>
           <NavLink
             to={item.to}

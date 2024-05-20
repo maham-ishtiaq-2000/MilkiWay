@@ -8,6 +8,8 @@ import ProductCartPage from "./pages/productCartPage";
 import PaymentPage from "./pages/PaymentPage";
 import OrderHistory from "./pages/OrderHistory";
 import SettingsPage from "./pages/SettingsPage";
+import AddProduct from './pages/ProductsManagement/AddProduct';
+import AllProduct from "./pages/ProductsManagement/AllProduct";
 
 const AppRoutes = () => {
     
@@ -21,7 +23,9 @@ const AppRoutes = () => {
             <Route path="/paymentPage" element={<PaymentPage />}></Route>
             <Route path="/orderHistory" element={<OrderHistory />}></Route>
             <Route path="/settingsPage" element={<SettingsPage />}></Route>
-        </Routes>
+            <Route path="/addProduct" element={<AddProduct />}></Route>
+            <Route path="/allFarmerProduct" element={<AllProduct />}></Route>
+        </Routes> 
     );
 };
 

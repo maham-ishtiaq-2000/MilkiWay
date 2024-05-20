@@ -34,6 +34,7 @@ const Login = () => {
         role: inputs.role
       });
       localStorage.setItem('userId', response.data.user._id);
+      localStorage.setItem('role', response.data.user.role)
       navigate("/homePage");
     } catch (error) {
       toast.error("Invalid Email or Password!");

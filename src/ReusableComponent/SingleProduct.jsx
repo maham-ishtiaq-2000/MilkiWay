@@ -1,17 +1,18 @@
-import React,{useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import EggImage from '../assets/Egg.png';
 import YogurtImage from '../assets/yogurt.png';
 import MilkImage from '../assets/Milk.png';
 import AllProductsImage from '../assets/allProducts.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons'; // Make sure to import the cart-plus icon
+import { faCartPlus, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { CartContext } from '../context/cartContext';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Modal from './Modal'; // Import the Modal component
 
-const SingleProduct = ({ product }) => {
-    const { addToCart} = useContext(CartContext);
+const SingleProduct = ({ product, component }) => {
+    const { addToCart } = useContext(CartContext);
     const description = product.description.toLowerCase();
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     // Set the image source based on the description
     let imageSrc;
@@ -29,9 +30,17 @@ const SingleProduct = ({ product }) => {
     const availabilityText = product.available ? "YES" : "NO";
 
     const addToCartItems = () => {
-        addToCart(product)
-        alert("Added To Cart Successfully!")
-    }
+        addToCart(product);
+        alert("Added To Cart Successfully!");
+    };
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
 
     return (
         <div className="relative w-80 h-100 bg-offWhite shadow-lg rounded-lg flex flex-col border border-3 border-offWhite overflow-hidden">
@@ -64,11 +73,25 @@ const SingleProduct = ({ product }) => {
                     </div>
                 </div>
             </div>
-            <button className="w-full bg-pink hover:bg-slightlyDarkPink text-white font-bold py-2 px-4 rounded-bl-lg rounded-br-lg mt-4 flex justify-center items-center" onClick={addToCartItems}>
-                ADD TO CART<FontAwesomeIcon icon={faCartPlus} className="ml-5" />
-            </button>
+            {component !== "FarmerAllProduct" && (
+                <button
+                    className="w-full bg-pink hover:bg-slightlyDarkPink text-white font-bold py-2 px-4 rounded-bl-lg rounded-br-lg mt-4 flex justify-center items-center"
+                    onClick={addToCartItems}
+                >
+                    ADD TO CART<FontAwesomeIcon icon={faCartPlus} className="ml-5" />
+                </button>
+            )}
+            {component === "FarmerAllProduct" && (
+                <button
+                    className="w-full bg-pink hover:bg-slightlyDarkPink text-white font-bold py-2 px-4 rounded-bl-lg rounded-br-lg mt-4 flex justify-center items-center"
+                    onClick={openModal}
+                >
+                    EDIT<FontAwesomeIcon icon={faEdit} className="ml-5" />
+                </button>
+            )}
+            <Modal product={product} isOpen={isModalOpen} onClose={closeModal} />
         </div>
     );
-}
+};
 
 export default SingleProduct;

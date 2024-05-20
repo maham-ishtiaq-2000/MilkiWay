@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SideBar from '../Layouts/SideBar';
 import { useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
@@ -10,6 +10,14 @@ import Slider3 from '../assets/HomePagePic3.png';
 
 const HomePage = () => {
     const navigate = useNavigate();
+    const [role, setRole] = useState('');
+
+    useEffect(() => {
+        // Fetch the role from localStorage
+        const userRole = localStorage.getItem('role');
+        setRole(userRole);
+    }, []);
+
     const navigateToProducts = () => {
         navigate("/products");
     };
@@ -48,13 +56,18 @@ const HomePage = () => {
                         ))}
                     </Slider>
                 </div>
-                <div className="flex justify-center items-center w-full">
-                    <div className="w-full px-10 py-4 mt-20">
-                        <button className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 py-5 bg-pink shadow-pink text-white font-semibold text-2xl rounded-md shadow hover:bg-slightlyDarkPink transition ease-in duration-200 text-center mx-auto block" onClick={navigateToProducts}>
-                            Explore Products
-                        </button>
+                {role === 'customer' && (
+                    <div className="flex justify-center items-center w-full">
+                        <div className="w-full px-10 py-4 mt-20">
+                            <button 
+                                className="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 py-5 bg-pink shadow-pink text-white font-semibold text-2xl rounded-md shadow hover:bg-slightlyDarkPink transition ease-in duration-200 text-center mx-auto block"
+                                onClick={navigateToProducts}
+                            >
+                                Explore Products
+                            </button>
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
         </div>
     );

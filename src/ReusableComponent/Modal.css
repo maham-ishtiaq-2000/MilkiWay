@@ -1,0 +1,38 @@
+/* Modal.css */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: flex-start; /* Aligns the modal to the top initially */
+    justify-content: center;
+    transition: background 0.3s ease;
+    z-index: 50;
+}
+
+.modal-container {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    width: 50%;
+    max-width: 600px;
+    margin-top: 2rem; /* Starts with a margin from the top */
+    animation: slideDown 0.3s ease forwards; /* Animation for sliding down */
+    z-index: 51;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
