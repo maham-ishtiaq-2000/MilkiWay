@@ -9,7 +9,8 @@ import {
   faSignOutAlt,
   faCartShopping,
   faAdd,
-  faClipboardList
+  faClipboardList,
+  faTags
 } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router-dom/dist";
 
@@ -27,8 +28,9 @@ const Sidebar = () => {
     { to: "/homePage", icon: faHome, roles: ["dairyFarmOwner", "customer"] },
     { to: "/productCartPage", icon: faCartShopping, roles: ["customer"] },
     { to: "/addProduct", icon: faAdd , roles : ["dairyFarmOwner"]},
-    { to : "/allFarmerProduct" , icon : faClipboardList , roles : ["dairyFarmOwner"]},
+    { to : "/allFarmerProduct" , icon : faTags , roles : ["dairyFarmOwner"]},
     { to: "/orderHistory", icon: faPieChart, roles: ["customer"] },
+    { to: "/orderHistoryFarmer", icon: faClipboardList, roles: ["dairyFarmOwner"] },
     { to: "/settingsPage", icon: faGear, roles: ["dairyFarmOwner", "customer"] },
   ];
 

@@ -7,6 +7,7 @@ import Products from './pages/Products';
 import ProductCartPage from "./pages/productCartPage";
 import PaymentPage from "./pages/PaymentPage";
 import OrderHistory from "./pages/OrderHistory";
+import OrderHistoryFarmer from "./pages/OrderHistoryFarmer";
 import SettingsPage from "./pages/SettingsPage";
 import AddProduct from './pages/ProductsManagement/AddProduct';
 import AllProduct from "./pages/ProductsManagement/AllProduct";
@@ -22,6 +23,7 @@ const AppRoutes = () => {
             <Route path="/productCartPage" element={<ProductCartPage />}></Route>
             <Route path="/paymentPage" element={<PaymentPage />}></Route>
             <Route path="/orderHistory" element={<OrderHistory />}></Route>
+            <Route path="/orderHistoryFarmer" element={<OrderHistoryFarmer />}></Route>
             <Route path="/settingsPage" element={<SettingsPage />}></Route>
             <Route path="/addProduct" element={<AddProduct />}></Route>
             <Route path="/allFarmerProduct" element={<AllProduct />}></Route>
