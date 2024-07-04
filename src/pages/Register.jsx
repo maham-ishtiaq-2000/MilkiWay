@@ -11,7 +11,8 @@ const Register = () => {
     email: '',
     password: '',
     role: '',
-    username: ''
+    username: '',
+    address: ''
   });
  
 
@@ -31,6 +32,7 @@ const Register = () => {
         email: inputs.email,
         password: inputs.password,
         username: inputs.username,
+        address: inputs.address,
         role: inputs.role
       });
       alert("You are registered Successfully!")
@@ -65,6 +67,13 @@ const Register = () => {
                   className="mt-2 appearance-none block w-full px-3 py-2 placeholder-gray-500 text-gray-900 rounded-md 
                   focus:outline-none focus:border-indigo-500 focus:z-10 sm:text-sm" 
                   placeholder="User Name"  onChange={handleChange} />
+            </div>
+            <div className="mb-4">
+              <label htmlFor="email-address" className="block text-sm font-medium text-gray-700">Address</label>
+              <input id="user-name" name="address"  autoComplete="off" required 
+                  className="mt-2 appearance-none block w-full px-3 py-2 placeholder-gray-500 text-gray-900 rounded-md 
+                  focus:outline-none focus:border-indigo-500 focus:z-10 sm:text-sm" 
+                  placeholder="Address"  onChange={handleChange} />
             </div>
             <div className="mb-4">
               <label htmlFor="role" className="block text-sm font-medium text-gray-700 mt-5">Role</label>

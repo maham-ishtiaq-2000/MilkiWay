@@ -8,6 +8,7 @@ const SettingsPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [userId, setUserId] = useState('');
+    const [address, setAddress] = useState('');
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState('');
 
@@ -26,7 +27,7 @@ const SettingsPage = () => {
     const handleUpdate = async (e) => {
         e.preventDefault();
         console.log('Updating with:', { username, email, password, userId });  // Verify all data before sending
-        if (!username || !email || !password) {
+        if (!username || !email || !password || !address) {
             setMessage('Please fill in all fields');
             return;
         }
@@ -36,7 +37,8 @@ const SettingsPage = () => {
             const response = await axios.put(`http://localhost:3000/users/update/${userId}`, {
                 username,
                 email,
-                password
+                password,
+                address
             });
             console.log('Server response:', response.data);  // Check the server response
             setMessage('User updated successfully!');
@@ -98,6 +100,19 @@ const SettingsPage = () => {
                                 placeholder="New Password"
                                 value={password}
                                 onChange={e => setPassword(e.target.value)}
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label className="block text-pink text-sm font-bold mb-2" htmlFor="address">
+                                Address
+                            </label>
+                            <input
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                                id="address"
+                                type="text"
+                                placeholder="Address"
+                                value={address}
+                                onChange={e => setAddress(e.target.value)}
                             />
                         </div>
                         <div className="flex items-center justify-center mt-4">
