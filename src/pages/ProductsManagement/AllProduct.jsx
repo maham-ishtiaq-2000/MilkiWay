@@ -53,7 +53,7 @@ const AllProduct = () => {
                     </div>
                 </div>
                 <div className="overflow-y-auto h-[80vh] lg:pl-20 mt-5">
-                    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-4 py-10 p-4 pb-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 gap-4 py-10 p-4 pb-20">
                         {filteredProducts.map((product, index) => (
                             <SingleProduct key={index} product={product} component="FarmerAllProduct" />
                         ))}
