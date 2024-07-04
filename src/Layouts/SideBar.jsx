@@ -13,7 +13,7 @@ import {
   faTags,
   faChartBar
 } from "@fortawesome/free-solid-svg-icons";
-import { useLocation } from "react-router-dom/dist";
+import { useLocation } from "react-router-dom";
 
 const Sidebar = () => {
   const route = useLocation();
@@ -24,7 +24,6 @@ const Sidebar = () => {
     setRole(userRole);
   }, []);
 
-  
   const icons = [
     { to: "/homePage", icon: faHome, roles: ["dairyFarmOwner", "customer"] },
     { to: "/productCartPage", icon: faCartShopping, roles: ["customer"] },
@@ -43,6 +42,23 @@ const Sidebar = () => {
 
   return (
     <div className="fixed top-0 left-0 flex flex-col h-full bg-offWhite text-pink items-end py-4 pl-4 z-50">
+      <div className="mb-5 mr-2">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+              isActive
+                ? "py-4 px-4 mr-3 rounded flex justify-center bg-pink text-white hover:bg-pink"
+                : "py-4 px-4 mr-3 rounded flex justify-center hover:bg-pink hover:text-white"
+            }
+          onClick={handleLogout}
+        >
+          <FontAwesomeIcon
+            icon={faSignOutAlt}
+            className="text-salmon-600 text-4xl hover:text-white"
+            style={{ fontSize: "24px" }}
+          />
+        </NavLink>
+      </div>
       <NavLink to="/homePage" className="w-20 h-20 mb-5 mr-2">
         <img src={logo} alt="Logo" />
       </NavLink>
@@ -63,24 +79,6 @@ const Sidebar = () => {
           </NavLink>
         </div>
       ))}
-
-      <div className="mt-auto">
-        <NavLink
-          to="/"
-          className={({ isActive }) =>
-              isActive
-                ? "py-4 px-4 mr-3 rounded flex justify-center bg-pink text-white hover:bg-pink"
-                : "py-4 px-4 mr-3 rounded flex justify-center hover:bg-pink hover:text-white"
-            }
-          onClick={handleLogout}
-        >
-          <FontAwesomeIcon
-            icon={faSignOutAlt}
-            className="text-salmon-600 text-4xl hover:text-white"
-            style={{ fontSize: "24px" }}
-          />
-        </NavLink>
-      </div>
     </div>
   );
 };
