@@ -50,7 +50,7 @@ const HomePage = () => {
                                 <img
                                     src={image.src}
                                     alt={image.alt}
-                                    className="w-full h-[50rem] object-cover" // Further increased height
+                                    className="w-full h-[30rem] object-cover" // Further increased height
                                 />
                             </div>
                         ))}

@@ -12,6 +12,7 @@ import SettingsPage from "./pages/SettingsPage";
 import AddProduct from './pages/ProductsManagement/AddProduct';
 import AllProduct from "./pages/ProductsManagement/AllProduct";
 import DeliveryBoyPage from "./pages/DeliveryBoyPage";
+import DeliveryStatusPage from "./pages/DeliveryStatusPage";
 import ProductDemandChart from "./pages/ProductDemandChart";
 
 const AppRoutes = () => {
@@ -31,6 +32,7 @@ const AppRoutes = () => {
             <Route path="/allFarmerProduct" element={<AllProduct />}></Route>
             <Route path="/deliveryBoyPage" element={<DeliveryBoyPage />}></Route>
             <Route path="/productDemandChart" element={<ProductDemandChart />}></Route>
+            <Route path="/deliveryStatusPage" element={<DeliveryStatusPage />}></Route>
         </Routes> 
     );
 };

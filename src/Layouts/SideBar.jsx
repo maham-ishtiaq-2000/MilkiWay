@@ -32,8 +32,9 @@ const Sidebar = () => {
     { to : "/allFarmerProduct" , icon : faTags , roles : ["dairyFarmOwner"]},
     { to: "/orderHistory", icon: faPieChart, roles: ["customer"] },
     { to: "/orderHistoryFarmer", icon: faClipboardList, roles: ["dairyFarmOwner"] },
-    { to: "/settingsPage", icon: faGear, roles: ["dairyFarmOwner", "customer", "deliveryBoy"] },
     { to: "/deliveryBoyPage", icon: faHome, roles: ["deliveryBoy"]},
+    { to: "/settingsPage", icon: faGear, roles: ["dairyFarmOwner", "customer", "deliveryBoy"] },
+   
   ];
 
   const handleLogout = () => {
