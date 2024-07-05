@@ -44,7 +44,8 @@ const DeliveryBoyPage = () => {
         <div className="flex flex-col md:flex-row min-h-screen bg-white">
             <SideBar />
             <div className="flex justify-center w-full p-4">
-                <div className="w-4/5 flex bg-offWhite p-4 mt-10" style={{ height: "80%" }}>
+                <div className="w-4/5 flex bg-offWhite flex-col p-4 mt-10" style={{ height: "80%" }}>
+                    <h1>Contact Us at 03345678240</h1>
                     {acceptedOrders.map((order, index) => (
                         <div key={index} className="w-full flex mb-4 bg-white p-4 shadow">
                             <div className="w-1/2 p-2 flex flex-col justify-center items-center">
